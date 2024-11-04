@@ -1,8 +1,8 @@
 // Nous utilisons ce composant pour afficher une tache
 
-import styles from './TaskItem.modules.css';
+import styles from './TaskItem.module.css';
 
-export const TaskItem = () => {
+function TaskItem() {
     return (
         <li className={`${styles.container} ${styles.default}`}>
             <div className={styles.item}>
@@ -11,8 +11,10 @@ export const TaskItem = () => {
                     Checker les nouveautes de React.js
                 </div>
             </div>
-            {/* <button className='button-primary'>x</button> */}
+            <button className='button-primary'>x</button>
         </li>
     );
 
 };
+
+export default TaskItem ;

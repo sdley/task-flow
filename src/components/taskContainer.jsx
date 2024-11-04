@@ -1,6 +1,6 @@
 import Header from "./header/header"
 import TaskInput from "./taskInput/taskInput"
-import { TaskList } from "./taskList/taskList"
+import TaskList from "./taskList/taskList"
 
 
 
