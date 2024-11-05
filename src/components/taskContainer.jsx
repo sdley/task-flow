@@ -10,21 +10,7 @@ import TaskList from "./taskList/taskList"
 const TaskContainer = () => {
 
   // creation d'un etat de la liste des taches
-  const [tasksList, setTasksList] = useState(
-    [
-      // {
-      //   id: 1,
-      //   title: "Faire mon TP d'entrepot de donnees",
-      //   completed: false
-      // },
-      // {
-      //   id: 2,
-      //   title: "Faire mon Lab CI/CD",
-      //   completed: true
-      // },
-
-    ]
-  );
+  const [tasksList, setTasksList] = useState([]);
 
   // fonction d'ajout de tache
   const addTask = (title) => {
@@ -38,7 +24,35 @@ const TaskContainer = () => {
     setTasksList([...tasksList, newTask]);
   };
 
-  console.log('taskList: ' ,tasksList);
+  // fonction edition tache
+  const editTask = (id, completedValue) =>{
+    setTasksList(
+      tasksList.map((task) => 
+      task.id === id ? {...task, completed: completedValue} : task
+      )
+    );
+  };
+
+  // fonction supprimer tache
+  const deleteTask = (id) => {
+    setTasksList(tasksList.filter((task) => task.id !== id));
+  };
+
+  // fonction compter le nombre de tache complete
+  const getTaskCounts = () => {
+    const completedTasks = tasksList.filter((task) => task.completed).length;
+    const incompletedTasks = tasksList.length - completedTasks;
+    return {
+      completedTasks,
+      incompletedTasks
+    };
+  }
+
+  // recuperation du nombre de taches
+  const { completedTasks, incompletedTasks } = getTaskCounts();
+  console.log(completedTasks, incompletedTasks);
+
+  // console.log('taskList: ' ,tasksList);
 
   return (
     <main>

@@ -24,7 +24,7 @@ function TaskInput({addTask}) {
       setTaskTitle("");
       // console.log("envoie de la tache", taskTitle);
     }
-    else {
+    // else {
     //   console.log("Impossible une tache sans titre!");
     // }
   };
@@ -51,4 +51,4 @@ function TaskInput({addTask}) {
   )
 }
 
-export default TaskInput
+export default TaskInput;
