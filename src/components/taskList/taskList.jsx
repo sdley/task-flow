@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
  
 // Nous utilisons ce composant pour afficher la liste des taches
 
@@ -30,19 +31,38 @@ function TaskList({
         - Nous le faisons ainsi pour juste rendre le jsx plus propre, pour ne pas le surcharger trop !
     */
     
-    
+    // Adaptation de l'affichage de la liste selon son statut
+    if (taskList && taskList.length > 0){
+        return (
+            <div className="box">
+                <h2 className={styles.title}>
+                    {incompletedTasks > 0 && (
+                        <>📝 Il vous reste encore <span className="important">{incompletedTasks}</span> tâches à accomplir ! ✍️</>
+                    )}
+
+                    {incompletedTasks === 0 && (
+                        <>🤝 Genial, vous avez accompli toutes vos tâches ! 🥳</>
+                    )}
+                    
+                </h2>
+                {
+                    taskList && taskList.length > 0 && (<ul className={styles.container}>
+                        {/* <TaskItem /> */}
+                        {taskList}
+                    </ul>)
+                }
+                
+            </div>
+        );
+    }
+
+    // Sinon on return un empty state/un element vide !
     return (
         <div className="box">
-            <h2 className={styles.title}>
-                📝 Il vous reste encore {incompletedTasks} taches a accomplir !
+            <h2 className={styles.emptyState}>
+                👋 Hey there, Vous n'avez rien a faire pour le moment ! <br />
+                🎉 Profitez bien de votre temps libre ! 🥳🎊
             </h2>
-            {
-                taskList && taskList.length > 0 && (<ul className={styles.container}>
-                    {/* <TaskItem /> */}
-                    {taskList}
-                </ul>)
-            }
-            
         </div>
     );
 };

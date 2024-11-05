@@ -39,7 +39,7 @@ function TaskInput({addTask}) {
             name="" 
             id="" 
             className={styles.input}
-            placeholder="Indiquer une nouvelle tache"
+            placeholder="Indiquer une nouvelle tâche"
             onChange={handleInputChange}
             // l'attribut value nous permettra de reinitialiser le champ de saisie avec la methode setTaskTitle
             value={taskTitle}
