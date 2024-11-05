@@ -50,7 +50,7 @@ const TaskContainer = () => {
 
   // recuperation du nombre de taches
   const { completedTasks, incompletedTasks } = getTaskCounts();
-  console.log(completedTasks, incompletedTasks);
+  // console.log(completedTasks, incompletedTasks);
 
   // console.log('taskList: ' ,tasksList);
 
@@ -59,7 +59,12 @@ const TaskContainer = () => {
       <Header />
       {/* passons la methode au composant */}
       <TaskInput addTask={addTask} />
-      <TaskList />
+      <TaskList 
+        tasksList = {tasksList}
+        editTask = {editTask}
+        deleteTask = {deleteTask}
+        incompletedTasks = {incompletedTasks}
+      />
       <Footer />
     </main>
   )
