@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Footer } from "./footer/footer"
 import Header from "./header/header"
 import TaskInput from "./taskInput/taskInput"
@@ -10,7 +10,24 @@ import TaskList from "./taskList/taskList"
 const TaskContainer = () => {
 
   // creation d'un etat de la liste des taches
-  const [tasksList, setTasksList] = useState([]);
+  // const [tasksList, setTasksList] = useState([]);
+
+  /*
+    Nous allons utiliser l'API localStorage du navigateur 
+    pour stocker les tâches dans le stockage local.
+  */
+
+  // Récupérer les tâches du stockage local lors du chargement initial
+  const [tasksList, setTasksList] = useState(() => {
+    const storedTasks = localStorage.getItem('my-tasksList');
+    return storedTasks ? JSON.parse(storedTasks) : [];
+  });
+
+  // Mettre à jour le stockage local chaque fois que la liste des tâches change
+  useEffect(() => {
+    localStorage.setItem('my-tasksList', JSON.stringify(tasksList));
+  }, [tasksList]);
+
 
   // fonction d'ajout de tache
   const addTask = (title) => {
@@ -53,6 +70,29 @@ const TaskContainer = () => {
   const { completedTasks, incompletedTasks } = getTaskCounts();
   // console.log(completedTasks, incompletedTasks);
 
+  // Utilisation du localStorage pour sauvegarder l'etat de nos taches/states
+
+  /*
+    2. Ensuite nous rechargeons les donnees du localStorage dans le state au chargement/rechargement de la page.
+    En effet useEffect 2 doit s'executer avant le premier pour ne pas ecraser les donnees.
+  */
+  // useEffect(() => {
+  //   const data = localStorage.getItem('my-tasks-list');
+  //   // Nous verifions s'il y a reellement des donnees
+  //   if (data){
+  //     setTasksList(JSON.parse(data));
+  //   }
+  //   console.log('my-tasks-list data: ', data);
+  //   console.log('my-tasks-list JSON.parse(data): ', JSON.parse(data));
+  // }, []);
+  
+  // // 1. sauvegarde de l'etat
+  // useEffect(() => {
+  //   localStorage.setItem('my-tasks-list', JSON.stringify(tasksList));
+  //   console.log('my-tasks-list 1: ', JSON.stringify(tasksList));
+  // });
+
+  
   // console.log('taskList: ' ,tasksList);
 
   return (
