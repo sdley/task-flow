@@ -14,18 +14,14 @@ Currently, two official plugins are available:
 - To run this app locally, just type: *npm run dev*
     - note that you've to install all dependences by running *npm install*
 
-* Copyright [sdley](https://diallosouleymane.github.io/) 2024
-* 
-* https://diallosouleymane.github.io/
+* Copyright [sdley](https://sdley.github.io/) 2024
+* https://sdley.github.io/
 
 
 [French] 
 ## Notes & Perspectives
-- Les donnees de notre application ne sont pas persistantes ; Au rafraichissement de la page, on les perd toutes parce que simplement elles sont stockees dans un etat (state)
-- Nous envisageons pour la suite de les stocker dans un localStorage pour pallier ce probleme.
-Cela nous permet de retrouver nos taches au prochain redemarrage de l'app sans forcemment avoir besoin de les stocker dans une base de donnees ! 
+- Les donnees de l'application (liste des taches) sont strictements personnelles et sont stockés au Local Storage du navigateur de l'utilisateur. Ce qui fait la liste des taches est propre a chaque utilisateur. 
 
-* Copyright [sdley](https://diallosouleymane.github.io/) 2024
-* 
-* https://diallosouleymane.github.io/
+* Copyright [sdley](https://sdley.github.io/) 2024
+* https://sdley.github.io/
 
