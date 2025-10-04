@@ -14,7 +14,7 @@ export const Footer = ({ completedTasks }) =>{
                 <p className={styles.footer}>
                     Copyright ©️&nbsp;
                     <a 
-                        href="https://diallosouleymane.github.io/" 
+                        href="https://sdley.github.io/" 
                         target="_blank"> sdley </a>&nbsp; 
                     {currentYear}
                 </p>
